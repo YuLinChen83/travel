@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>秋めく東北。五日紅葉紀行</title>
+  
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 引入 FontAwesome 圖示 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 引入 Google Fonts: 日系明體與無襯線黑體 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind 自訂色票配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'washi': '#F9F6F0',    // 和紙米白 (背景)
+            'momiji': '#C05A50',   // 楓紅 (主色/強調色)
+            'earth': '#D2B48C',    // 大地駝色 (次要色)
+            'ink': '#333333',      // 深鐵灰 (文字)
+            'sage': '#8BA18B',     // 鼠尾草綠 (點綴)
+            'night': '#4A5568',    // 靜謐藍灰 (深夜專用)
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', '"Noto Serif JP"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 隱藏橫向滾動條，保持滑順 */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* 卡片微過渡動畫 */
+    .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-washi text-ink font-sans antialiased pb-20">
+
+  <!-- ==================== 頂部視覺區 (Hero Section) ==================== -->
+  <header class="relative w-full h-64 md:h-80 bg-cover bg-center shadow-md" style="background-image: url('https://img.cooljapan-videos.com/r/1200x799/files/article_images/5e1451467b58651f6ad9ec29b45780a268f243e7.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+    <div class="absolute bottom-6 left-5 md:left-10 text-white">
+      <p class="text-sm tracking-widest mb-1 opacity-90 font-serif">2026.10.11 - 10.15</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-bold tracking-wider mb-2">秋めく東北。</h1>
+      <p class="text-base font-medium opacity-90">仙台・福島・山形｜五日紅葉充電之旅</p>
+    </div>
+  </header>
+
+  <!-- ==================== 日期分頁標籤 (Sticky Tabs) ==================== -->
+  <nav class="sticky top-0 z-50 bg-washi/95 backdrop-blur-md shadow-sm border-b border-earth/30">
+    <div class="flex overflow-x-auto no-scrollbar px-4 py-3 space-x-6 whitespace-nowrap text-sm font-bold">
+      <button onclick="switchTab('day1')" id="tab-day1" class="tab-btn text-momiji border-b-2 border-momiji pb-1 transition-colors">Day 1 仙台</button>
+      <button onclick="switchTab('day2')" id="tab-day2" class="tab-btn text-earth pb-1 transition-colors">Day 2 福島</button>
+      <button onclick="switchTab('day3')" id="tab-day3" class="tab-btn text-earth pb-1 transition-colors">Day 3 會津</button>
+      <button onclick="switchTab('day4')" id="tab-day4" class="tab-btn text-earth pb-1 transition-colors">Day 4 山形</button>
+      <button onclick="switchTab('day5')" id="tab-day5" class="tab-btn text-earth pb-1 transition-colors">Day 5 賦歸</button>
+      <button onclick="switchTab('tools')" id="tab-tools" class="tab-btn text-sage pb-1 transition-colors"><i class="fas fa-compass mr-1"></i>攻略備忘</button>
+    </div>
+  </nav>
+
+  <!-- ==================== 內容區 ==================== -->
+  <main class="px-5 py-6 max-w-2xl mx-auto">
+
+    <!-- ===== DAY 1 ===== -->
+    <section id="day1" class="tab-content active">
+      <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 border-l-4 border-momiji flex items-center gap-4">
+        <div class="text-3xl text-momiji"><i class="fas fa-cloud-sun"></i></div>
+        <div>
+          <h4 class="font-bold text-sm">仙台市區・平地氣候 (12°C - 19°C)</h4>
+          <p class="text-xs text-ink/70 mt-1">白天舒適，入夜有涼意。建議穿著 <span class="text-momiji font-bold">薄長袖內搭＋秋季風衣</span>。</p>
+        </div>
+      </div>
+
+      <div class="relative pl-6 border-l-2 border-earth/40 ml-2 space-y-8">
+        
+        <!-- 集合資訊 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-momiji animate-pulse"></div>
+          <p class="text-sm text-momiji font-bold mb-1"><i class="fas fa-users mr-1"></i> 09:05 集合報到</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm border-2 border-momiji/30">
+            <h3 class="font-serif text-lg font-bold text-momiji">桃園機場 第一航站</h3>
+            <p class="text-sm mt-2 text-ink/80">請於【星宇航空】團體櫃檯 (7號) 集合。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=桃園國際機場第一航廈" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>桃園機場T1</a>
+            </div>
+            <div class="mt-3 bg-earth/10 p-3 rounded-xl border-l-4 border-earth text-xs text-ink/80 leading-relaxed">
+              <strong class="text-earth font-bold"><i class="fas fa-phone-alt mr-1"></i> 隨團聯絡資訊</strong><br>
+              領隊：詹益賢 (台灣: 0988-611-683 / 國外: 81-080-85820929)<br>
+              送機人員：小蕭 (0928-251-747)
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-plane mr-1"></i> 11:35 - 16:00</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">啟程 ➔ 抵達仙台空港</h3>
+            <p class="text-sm mt-2 text-ink/80">搭乘 JX862 抵達日本東北樞紐。專車接送至仙台市區「京阪仙台飯店」辦理入住。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=仙台空港" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>仙台空港</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=ホテル京阪+仙台" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>京阪仙台飯店</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-utensils mr-1"></i> 18:00 - 21:00</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">晚餐自理 ＆ 車站商圈散策</h3>
+            <p class="text-sm mt-2 text-ink/80">飯店距車站僅 5 分鐘。晚餐強烈推薦在地炭烤厚切牛舌，並逛逛有遮雨棚的中央通商店街。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=仙台駅" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>仙台車站</a>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 space-y-2">
+              <button onclick="speak('ぎゅうたん')" class="w-full bg-washi border border-earth/30 text-ink rounded-xl px-4 py-2 text-sm flex items-center justify-between hover:bg-earth/10 transition-colors">
+                <span>牛舌 <span class="text-momiji font-bold ml-1">牛たん</span> <span class="text-xs text-gray-400 ml-1">(Gyu-tan)</span></span>
+                <i class="fas fa-volume-up text-sage"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 自由活動：深夜與晨間 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-night"></div>
+          <p class="text-sm text-night font-bold mb-1"><i class="fas fa-moon mr-1"></i> 深夜與清晨 自由探索</p>
+          <div class="bg-indigo-50/50 p-4 rounded-2xl shadow-sm border border-indigo-100">
+            <h3 class="font-serif text-lg font-bold text-night mb-2">京阪仙台 周邊攻略</h3>
+            
+            <div class="space-y-3">
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-momiji flex items-center"><i class="fas fa-shopping-cart mr-2"></i> 24H 爆買超市</h4>
+                <p class="text-xs text-ink/80 mt-1">下樓步行 4 分鐘即可抵達 <strong>唐吉訶德</strong> (生鮮零食地酒齊全，可順便找找吉伊卡哇的小周邊)；步行 12 分鐘可達在地人愛逛的大型 <strong>西友超市</strong>。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=ドン・キホーテ+仙台駅西口店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>唐吉訶德</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=西友+五橋店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>西友超市</a>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-momiji flex items-center"><i class="fas fa-bowl-food mr-2"></i> 深夜拉麵食堂</h4>
+                <p class="text-xs text-ink/80 mt-1">步行 4 分鐘可達 <strong>末廣拉麵本鋪</strong> (24H營業)，招牌黑醬油拉麵配上滿滿蔥花，深夜暖胃首選。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=末廣ラーメン本舗+仙台駅前分店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>末廣拉麵本鋪</a>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-sage flex items-center"><i class="fas fa-sun mr-2"></i> 清晨悠閒散策</h4>
+                <p class="text-xs text-ink/80 mt-1">早上 06:30 起可帶爸媽步行 3 分鐘逛 <strong>仙台朝市</strong>；或沿著飯店外種滿櫸木的 <strong>青葉通</strong> 散步。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=仙台朝市" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>仙台朝市</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=青葉通り+仙台" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>青葉通</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== DAY 2 ===== -->
+    <section id="day2" class="tab-content">
+      <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 border-l-4 border-momiji flex items-center gap-4">
+        <div class="text-3xl text-momiji"><i class="fas fa-wind"></i></div>
+        <div>
+          <h4 class="font-bold text-sm">高海拔山區 (4°C - 18°C)</h4>
+          <p class="text-xs text-ink/70 mt-1">山頂強風吹拂極冷。<span class="text-momiji font-bold">強烈建議洋蔥式穿法</span>：發熱衣＋抓絨衣＋防風保暖外套。</p>
+        </div>
+      </div>
+
+      <div class="relative pl-6 border-l-2 border-earth/40 ml-2 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-momiji"></div>
+          <p class="text-sm text-momiji font-bold mb-1"><i class="fas fa-bus mr-1"></i> 08:30 - 10:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">磐梯吾妻天空步道 (Skyline)</h3>
+            <p class="text-sm mt-2 text-ink/80">名列「日本道路100選」，車行經海拔 1622 公尺的淨土平，欣賞荒涼火山岩與火紅秋葉的強烈對比。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=浄土平ビジターセンター" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>淨土平休息站</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-tram mr-1"></i> 11:30 - 13:00</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">安達太良山纜車 (空中賞楓)</h3>
+            <p class="text-sm mt-2 text-ink/80">搭乘 10 分鐘纜車直達海拔 1350 公尺，俯瞰滿山谷金黃與橘紅交織的楓紅地毯。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=あだたら山ロープウェイ" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>安達太良山纜車</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-apple-alt mr-1"></i> 15:30 - 16:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">觀光果園採果樂 ➔ 福島市區</h3>
+            <p class="text-sm mt-2 text-ink/80">體驗福島現摘現吃的高甜度秋蘋。晚間入住 HOTEL SANKYO 福島，享用日式燒肉吃到飽晚餐。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=福島市+観光果樹園" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>觀光果園</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=HOTEL+SANKYO+FUKUSHIMA" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>HOTEL SANKYO</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 自由活動：深夜與晨間 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-night"></div>
+          <p class="text-sm text-night font-bold mb-1"><i class="fas fa-moon mr-1"></i> 深夜與清晨 自由探索</p>
+          <div class="bg-indigo-50/50 p-4 rounded-2xl shadow-sm border border-indigo-100">
+            <h3 class="font-serif text-lg font-bold text-night mb-2">HOTEL SANKYO 周邊攻略</h3>
+            
+            <div class="space-y-3">
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-momiji flex items-center"><i class="fas fa-shopping-cart mr-2"></i> 在地量販超市</h4>
+                <p class="text-xs text-ink/80 mt-1">步行 12 分鐘可達東北超市霸主 <strong>York Benimaru (曾根田店)</strong>，營業至 22:00。推薦採買福島白桃果汁與在地鮮乳。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=ヨークベニマル+曾根田店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>York Benimaru</a>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-momiji flex items-center"><i class="fas fa-bowl-food mr-2"></i> 福島深夜食堂</h4>
+                <p class="text-xs text-ink/80 mt-1">步行 8 分鐘可達 <strong>丸信拉麵 駅前店</strong> (營業至 01:00)，雙層醬油湯頭配上厚切叉燒。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=丸信ラーメン+駅前店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>丸信拉麵</a>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-sage flex items-center"><i class="fas fa-sun mr-2"></i> 清晨親水步道</h4>
+                <p class="text-xs text-ink/80 mt-1">往東步行 6 分鐘抵達 <strong>阿武隈川河畔</strong>。平坦自行車道晨霧環繞，路況極佳，非常適合陪長輩晨運。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=阿武隈川サイクリングロード+福島" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>阿武隈川河畔</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== DAY 3 ===== -->
+    <section id="day3" class="tab-content">
+      <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 border-l-4 border-momiji flex items-center gap-4">
+        <div class="text-3xl text-momiji"><i class="fas fa-temperature-half"></i></div>
+        <div>
+          <h4 class="font-bold text-sm">盆地與湖沼區 (7°C - 16°C)</h4>
+          <p class="text-xs text-ink/70 mt-1">湖區與泥土路多。請長輩穿著 <span class="text-momiji font-bold">防滑好走的休閒鞋</span>。</p>
+        </div>
+      </div>
+
+      <div class="relative pl-6 border-l-2 border-earth/40 ml-2 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-momiji"></div>
+          <p class="text-sm text-momiji font-bold mb-1"><i class="fas fa-leaf mr-1"></i> 09:30 - 11:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">五色沼散策 ＆ 土津神社</h3>
+            <p class="text-sm mt-2 text-ink/80">因火山礦物質使湖水呈現鈷藍色澤。隨後前往土津神社踩踏滿地落葉的紅葉地毯。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=五色沼" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>五色沼</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=土津神社" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>土津神社</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-chess-rook mr-1"></i> 14:00 - 15:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">會津 鶴城 (不上天守閣)</h3>
+            <p class="text-sm mt-2 text-ink/80">日本現存罕見使用赤瓦覆蓋屋頂的天守閣，紅葉點綴下古意盎然。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=鶴ヶ城" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>會津 鶴城</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-home mr-1"></i> 16:30 - 17:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">大內宿 ➔ 蘆之牧溫泉</h3>
+            <p class="text-sm mt-2 text-ink/80">保留江戶時代風貌的三大茅草屋聚落之一。晚上入住蘆之牧溫泉 丸峰，享用百匯自助餐。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=大内宿" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>大內宿</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=芦ノ牧温泉+丸峰" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>蘆之牧溫泉 丸峰</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 自由活動：深夜與晨間 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-night"></div>
+          <p class="text-sm text-night font-bold mb-1"><i class="fas fa-moon mr-1"></i> 溫泉鄉 自由探索</p>
+          <div class="bg-indigo-50/50 p-4 rounded-2xl shadow-sm border border-indigo-100">
+            <h3 class="font-serif text-lg font-bold text-night mb-2">丸峰溫泉 周邊攻略</h3>
+            
+            <div class="space-y-3">
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-momiji flex items-center"><i class="fas fa-store-slash mr-2"></i> 溫泉深山無超市提醒</h4>
+                <p class="text-xs text-ink/80 mt-1">奧會津大川溪谷極度幽靜，<strong>周邊無便利商店或超市</strong>。建議入住時在館內賣店買齊伴手禮。夜間可至館內拉麵吧喝杯小酒吃宵夜。</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl shadow-sm">
+                <h4 class="font-bold text-sm text-sage flex items-center"><i class="fas fa-sun mr-2"></i> 溪谷晨湯與免費足湯</h4>
+                <p class="text-xs text-ink/80 mt-1">早餐前可散步 3 分鐘至外面的 <strong>免費足湯「かがやき」</strong>，吹著晨風泡腳。</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=芦ノ牧温泉+足湯+かがやき" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>足湯かがやき</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== DAY 4 ===== -->
+    <section id="day4" class="tab-content">
+      <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 border-l-4 border-momiji flex items-center gap-4">
+        <div class="text-3xl text-momiji"><i class="fas fa-cloud"></i></div>
+        <div>
+          <h4 class="font-bold text-sm">山形溫泉溪谷 (8°C - 15°C)</h4>
+          <p class="text-xs text-ink/70 mt-1">銀山溫泉傍晚降溫極快。請務必帶上 <span class="text-momiji font-bold">保暖防風外套</span>。</p>
+        </div>
+      </div>
+
+      <div class="relative pl-6 border-l-2 border-earth/40 ml-2 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-momiji"></div>
+          <p class="text-sm text-momiji font-bold mb-1"><i class="fas fa-wine-bottle mr-1"></i> 10:00 - 11:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">東光酒藏 (百年酒造)</h3>
+            <p class="text-sm mt-2 text-ink/80">創立於1597年米澤藩主御用酒造。參觀無釘木造建築與巨型酒桶。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=東光の酒蔵" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>東光酒藏</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-torii-gate mr-1"></i> 14:30 - 16:30 (黃昏)</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">銀山溫泉街 (大正浪漫散策)</h3>
+            <p class="text-sm mt-2 text-ink/80">沿著銀山川兩側林立的大正木造旅館。黃昏時瓦斯燈亮起，氣氛如夢似幻。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=銀山温泉" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>銀山溫泉</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-city mr-1"></i> 18:30 以後</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">返回仙台 ＆ 晚餐自理</h3>
+            <p class="text-sm mt-2 text-ink/80">回到第一晚的京阪仙台飯店，迎來旅行的最後一個夜晚。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=ホテル京阪+仙台" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>京阪仙台飯店</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 自由活動：最後採買 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-night"></div>
+          <p class="text-sm text-night font-bold mb-1"><i class="fas fa-moon mr-1"></i> 深夜最後採買</p>
+          <div class="bg-indigo-50/50 p-4 rounded-2xl shadow-sm border border-indigo-100">
+            <h3 class="font-serif text-lg font-bold text-night mb-2">京阪仙台 周邊補給</h3>
+            <p class="text-sm mt-1 text-ink/80 mb-3">別忘了第一天的 <strong>唐吉訶德 (24H)</strong> 就在走路 4 分鐘處，是將免稅品、糖果、發熱衣一次買齊放進行李箱的絕佳時機！</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=ドン・キホーテ+仙台駅西口店" target="_blank" class="text-xs bg-gray-100 text-ink px-2 py-1 rounded font-bold hover:bg-gray-200"><i class="fas fa-map-pin mr-1"></i>唐吉訶德</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== DAY 5 ===== -->
+    <section id="day5" class="tab-content">
+      <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 border-l-4 border-momiji flex items-center gap-4">
+        <div class="text-3xl text-momiji"><i class="fas fa-sun"></i></div>
+        <div>
+          <h4 class="font-bold text-sm">沿海平原 (13°C - 20°C)</h4>
+          <p class="text-xs text-ink/70 mt-1">松島灣搭船海風偏大，隨身帶著 <span class="text-momiji font-bold">秋季風衣</span> 即可。</p>
+        </div>
+      </div>
+
+      <div class="relative pl-6 border-l-2 border-earth/40 ml-2 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-momiji"></div>
+          <p class="text-sm text-momiji font-bold mb-1"><i class="fas fa-ship mr-1"></i> 10:00 - 11:30</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">免稅店 ➔ 松島海灣遊船</h3>
+            <p class="text-sm mt-2 text-ink/80">與天橋立、宮島並列日本三景。搭船穿梭於260多座生長著松樹的奇岩島嶼之間。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=松島海岸" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>松島海岸</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-washi w-4 h-4 rounded-full border-4 border-earth"></div>
+          <p class="text-sm text-earth font-bold mb-1"><i class="fas fa-shopping-bag mr-1"></i> 13:00 - 15:00</p>
+          <div class="bg-white p-4 rounded-2xl shadow-sm">
+            <h3 class="font-serif text-lg font-bold">AEON MALL 名取 ➔ 仙台空港</h3>
+            <p class="text-sm mt-2 text-ink/80">午餐自理，除了超市新米與伴手禮，這裡也有 earth music&ecology 等日系服飾品牌可以逛逛。隨後搭乘 17:20 JX863 班機返台。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=イオンモール名取" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>AEON MALL 名取</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=仙台空港" target="_blank" class="text-xs bg-earth/10 text-earth px-3 py-1.5 rounded-lg font-bold hover:bg-earth/20 transition-colors"><i class="fas fa-map-marker-alt mr-1"></i>仙台空港</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 工具/備忘錄與周邊攻略 ===== -->
+    <section id="tools" class="tab-content">
+      
+      <!-- 行李清單 (可勾選，存入 localStorage) -->
+      <h2 class="font-serif text-2xl font-bold mb-4 text-ink border-b-2 border-earth/30 pb-2">旅支度 Checklist</h2>
+      <div class="bg-white rounded-2xl shadow-sm p-5 mb-6 border border-gray-100">
+        <ul id="packing-list" class="space-y-3 text-sm">
+          <!-- JS 動態生成 -->
+        </ul>
+      </div>
+
+      <!-- 購物付款防呆指南 -->
+      <h2 class="font-serif text-2xl font-bold mb-4 mt-8 text-ink border-b-2 border-earth/30 pb-2">刷卡購物絕不吃虧攻略</h2>
+      <div class="bg-white rounded-2xl shadow-sm p-5 mb-6 border-l-4 border-momiji">
+        <h3 class="font-bold text-ink mb-2"><i class="fas fa-credit-card text-momiji mr-1"></i> CUBE 卡專屬設定與結帳防呆</h3>
+        <ul class="space-y-3 text-sm text-ink/80 list-disc pl-4 marker:text-momiji mb-4">
+          <li><strong>絕對防呆提醒：</strong> 實體過卡結帳時，若店員詢問或刷卡機跳出幣別選項，<span class="text-momiji font-bold text-base underline decoration-momiji/50 underline-offset-4">請一律堅定選擇「JPY 日幣」結帳！</span>切勿選擇台幣 (TWD) 結帳，以免被收取高額動態貨幣轉換手續費。</li>
+          <li><strong>最高 20% 疊加法：</strong> 出示護照辦理退稅 10% ➔ 出示手機國泰專屬折價條碼 (折 3~7%) ➔ 使用實體 CUBE 卡感應結帳 (拿 3% 回饋)。</li>
+          <li><strong>回饋權益切換：</strong> 消費當日 23:59 前，務必確認 CUBE App 已切換為「日本賞」或「趣旅行」。</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== JavaScript ==================== -->
+  <script>
+    // Tab 切換邏輯
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('text-momiji', 'border-b-2', 'border-momiji');
+        if(el.id !== 'tab-tools') el.classList.add('text-earth');
+      });
+      
+      document.getElementById(tabId).classList.add('active');
+      const activeBtn = document.getElementById('tab-' + tabId);
+      activeBtn.classList.add('border-b-2', 'border-momiji');
+      
+      if(tabId !== 'tools') {
+        activeBtn.classList.remove('text-earth');
+        activeBtn.classList.add('text-momiji');
+      } else {
+        activeBtn.classList.remove('text-sage');
+        activeBtn.classList.add('text-momiji');
+      }
+    }
+
+    // 語音播放功能 (Web Speech API)
+    function speak(kana) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(kana);
+        utterance.lang = 'ja-JP';
+        utterance.rate = 0.85; 
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('很抱歉，您的瀏覽器不支援語音播放功能。');
+      }
+    }
+
+    // Checklist 邏輯 (localStorage)
+    const items = [
+      { id: 'item1', label: '護照 (效期需滿六個月) 與實體 CUBE 卡' },
+      { id: 'item2', label: '日幣現金 (準備零錢買小吃)' },
+      { id: 'item3', label: '常備藥品 (準備好爸媽習慣的腸胃藥與常備藥)' },
+      { id: 'item4', label: '防風保暖外套與輕羽絨' },
+      { id: 'item5', label: '防滑包覆好的休閒鞋或健走鞋' },
+      { id: 'item6', label: '保溫瓶 (飯店裝溫水外出喝)' },
+      { id: 'item7', label: 'Kobo 電子書閱讀器 (長途遊覽車上的放空良伴)' }
+    ];
+
+    function renderChecklist() {
+      const listEl = document.getElementById('packing-list');
+      listEl.innerHTML = '';
+      
+      items.forEach(item => {
+        const isChecked = localStorage.getItem(item.id) === 'true';
+        const li = document.createElement('li');
+        li.className = 'flex items-center gap-3';
+        li.innerHTML = `
+          <label class="flex items-center gap-3 cursor-pointer group w-full">
+            <div class="relative flex items-center justify-center">
+              <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} 
+                class="peer appearance-none w-5 h-5 border-2 border-earth/50 rounded checked:bg-sage checked:border-sage transition-all">
+              <i class="fas fa-check absolute text-white text-xs opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></i>
+            </div>
+            <span class="text-ink/90 peer-checked:text-ink/40 peer-checked:line-through transition-all select-none">${item.label}</span>
+          </label>
+        `;
+        
+        const checkbox = li.querySelector('input');
+        checkbox.addEventListener('change', (e) => {
+          localStorage.setItem(e.target.id, e.target.checked);
+        });
+        
+        listEl.appendChild(li);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', renderChecklist);
+  </script>
+</body>
+</html>
